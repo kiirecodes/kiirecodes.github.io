@@ -4,6 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Kiire Constantine | Portfolio</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-yHjoZlVnTXlYa7TzZKZUpv8j7k5M5C1zdbIkvT6aZ4sGJw+Q90Iu3yS0PSz3ToP6y9Mn0n8k9OMuG1wM5c2fFw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <style>
   /* ===== RESET & BASE ===== */
   * {
@@ -17,6 +21,8 @@
     color: #fff;
     overflow-x: hidden;
   }
+
+  a { text-decoration: none; color: inherit; }
 
   /* ===== NAVBAR ===== */
   header {
@@ -37,7 +43,6 @@
   }
   nav a {
     margin-left: 25px;
-    text-decoration: none;
     color: #eee;
     font-weight: 500;
     transition: color 0.3s;
@@ -47,7 +52,7 @@
   }
 
   /* ===== HERO ===== */
-  section#hero {
+  #hero {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -58,8 +63,8 @@
   }
   #hero h2 {
     font-size: 3rem;
-    margin-bottom: 15px;
     color: #00d4ff;
+    margin-bottom: 15px;
   }
   #hero p {
     max-width: 600px;
@@ -83,7 +88,7 @@
   }
 
   /* ===== SKILLS ===== */
-  section#skills {
+  #skills {
     padding: 80px 20px;
     text-align: center;
     background: #13232f;
@@ -112,40 +117,59 @@
   }
 
   /* ===== PROJECTS ===== */
-  section#projects {
+  #projects {
     padding: 80px 20px;
     background: #0f2027;
     text-align: center;
   }
   #projects h2 {
     font-size: 2.5rem;
-    margin-bottom: 40px;
     color: #00d4ff;
+    margin-bottom: 40px;
   }
-  .project-grid {
+
+  .project-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     max-width: 1000px;
     margin: 0 auto;
   }
-  .project {
+
+  .project-card {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    padding: 25px;
-    transition: transform 0.3s;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
   }
-  .project:hover {
+  .project-card:hover {
     transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   }
-  .project h3 {
+  .project-img {
+    background: linear-gradient(135deg, #00d4ff, #005f73);
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: #fff;
+  }
+  .project-content {
+    padding: 20px;
+    text-align: left;
+  }
+  .project-content h3 {
     color: #00d4ff;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+  }
+  .project-content p {
+    font-size: 0.95rem;
+    opacity: 0.85;
   }
 
   /* ===== CONTACT ===== */
-  section#contact {
+  #contact {
     padding: 80px 20px;
     text-align: center;
     background: #13232f;
@@ -155,16 +179,23 @@
     color: #00d4ff;
     margin-bottom: 20px;
   }
+  .socials {
+    margin-top: 20px;
+  }
   .socials a {
     display: inline-block;
-    margin: 10px;
+    margin: 10px 15px;
     color: #00d4ff;
     text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s;
+    font-size: 1.2rem;
+    transition: color 0.3s, transform 0.3s;
   }
   .socials a:hover {
     color: #fff;
+    transform: translateY(-3px);
+  }
+  .socials i {
+    margin-right: 8px;
   }
 
   /* ===== FOOTER ===== */
@@ -186,10 +217,10 @@
     opacity: 1;
     transform: translateY(0);
   }
-
 </style>
 </head>
 <body>
+
   <header>
     <h1>Kiire Constantine</h1>
     <nav>
@@ -228,23 +259,35 @@
   </section>
 
   <section id="projects">
-    <h2>What I Do</h2>
-    <div class="project-grid" data-animate>
-      <div class="project">
-        <h3>Cross-Platform Apps</h3>
-        <p>Using .NET MAUI and other .NET technologies to build apps that run seamlessly on Android, Windows, macOS, and Linux.</p>
+    <h2>Featured Projects</h2>
+    <div class="project-gallery" data-animate>
+      <div class="project-card">
+        <div class="project-img"><i class="fa-solid fa-mobile-screen-button"></i></div>
+        <div class="project-content">
+          <h3>Cross-Platform Apps</h3>
+          <p>Built with .NET MAUI, delivering unified experiences across Android, Windows, macOS, and Linux.</p>
+        </div>
       </div>
-      <div class="project">
-        <h3>Web Development</h3>
-        <p>Creating fast, responsive websites using HTML, CSS, JavaScript, and modern frameworks.</p>
+      <div class="project-card">
+        <div class="project-img"><i class="fa-solid fa-globe"></i></div>
+        <div class="project-content">
+          <h3>Web Development</h3>
+          <p>Designing clean, responsive websites with HTML, CSS, JavaScript, and modern frameworks.</p>
+        </div>
       </div>
-      <div class="project">
-        <h3>Systems Programming</h3>
-        <p>Building performant low-level software with Zig, Rust, and C for optimal control and efficiency.</p>
+      <div class="project-card">
+        <div class="project-img"><i class="fa-solid fa-microchip"></i></div>
+        <div class="project-content">
+          <h3>Systems Programming</h3>
+          <p>Creating high-performance software using Zig, Rust, and C with a focus on efficiency and safety.</p>
+        </div>
       </div>
-      <div class="project">
-        <h3>Programming Coach</h3>
-        <p>Helping others learn how to code through clear explanations and practical examples.</p>
+      <div class="project-card">
+        <div class="project-img"><i class="fa-solid fa-chalkboard-user"></i></div>
+        <div class="project-content">
+          <h3>Programming Coach</h3>
+          <p>Empowering others to code with practical lessons, mentorship, and real-world examples.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -252,10 +295,10 @@
   <section id="contact">
     <h2>Let's Connect</h2>
     <div class="socials" data-animate>
-      <a href="http://kiirecodes.pages.dev/" target="_blank">🌐 Website</a>
-      <a href="https://x.com/coding_simply?t=h07piTM45wPuuP9PqokDMA&s=09" target="_blank">🐦 X (Twitter)</a>
-      <a href="https://discord.gg/e2aYtCWKZx" target="_blank">💬 Discord</a>
-      <a href="https://youtube.com/@kiire_codes-ft9qb?si=ZMNfZzzJoOZHSa6u" target="_blank">▶️ YouTube</a>
+      <a href="http://kiirecodes.pages.dev/" target="_blank"><i class="fa-solid fa-globe"></i>Website</a>
+      <a href="https://x.com/coding_simply?t=h07piTM45wPuuP9PqokDMA&s=09" target="_blank"><i class="fa-brands fa-x-twitter"></i>X (Twitter)</a>
+      <a href="https://discord.gg/e2aYtCWKZx" target="_blank"><i class="fa-brands fa-discord"></i>Discord</a>
+      <a href="https://youtube.com/@kiire_codes-ft9qb?si=ZMNfZzzJoOZHSa6u" target="_blank"><i class="fa-brands fa-youtube"></i>YouTube</a>
     </div>
   </section>
 
@@ -264,7 +307,7 @@
   </footer>
 
   <script>
-    // Animate sections on scroll
+    // Scroll animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -275,5 +318,7 @@
 
     document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
   </script>
+
 </body>
-	</html>
+</html>
+																  </html>
